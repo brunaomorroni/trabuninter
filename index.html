@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            margin: 20px;
+        }
+
+        header img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .tab {
+            overflow: hidden;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .tab button {
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            margin: 0 5px;
+            border-radius: 4px;
+        }
+
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            margin: 0 auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+
+        .tabcontent img {
+            max-width: 80%;
+            height: auto;
+            border-radius: 8px;
+            width: 500px; /* Ajuste o valor conforme necessário */
+        }
+
+        .form-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .form-container input, .form-container textarea {
+            display: block;
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            margin: 10px auto;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px auto;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function openTab(tabName) {
+            var tabs = document.getElementsByClassName("tabcontent");
+            for (var i = 0; i < tabs.length; i++) {
+                tabs[i].style.display = "none";
+            }
+
+            var buttons = document.getElementsByClassName("tablinks");
+            for (var j = 0; j < buttons.length; j++) {
+                buttons[j].className = buttons[j].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            var activeButton = document.querySelector(`.tab button[data-tab="${tabName}"]`);
+            if (activeButton) {
+                activeButton.className += " active";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bruno Henrique</h1>
+        <img src="images/estudante.jpg" alt="Bruno Henrique">
+        <p>Sou estudante da Uninter do curso de Análise e Desenvolvimento de Sistemas.</p>
+    </header>
+
+    <div class="tab">
+        <button class="tablinks" data-tab="home" onclick="openTab('home')">Página Inicial</button>
+        <button class="tablinks" data-tab="education" onclick="openTab('education')">Formação Educacional</button>
+        <button class="tablinks" data-tab="personalLife" onclick="openTab('personalLife')">Vida Pessoal</button>
+        <button class="tablinks" data-tab="form" onclick="openTab('form')">Formulário</button>
+    </div>
+
+    <div id="home" class="tabcontent" style="display: block;">
+        <h2>Página Inicial</h2>
+        <img src="images/cachorrao1.jpeg" alt="Imagem Página Inicial">
+        <p>Coloquei essa imagem pois gosto de cachorros, nela mostra um pastor alemão com a bandeira do Brasil sobre ele e além disso a mesma foi gerada por inteligência artificial.</p>
+    </div>
+
+    <div id="education" class="tabcontent">
+        <h2>Formação Educacional de Bruno Henrique</h2>
+        <img src="images/educacional.jpg" alt="Imagem Formação Educacional">
+        <p>Fiz o ensino médio e logo após encerrar comecei um curso técnico em informática e programação. Ao acabar o curso, comecei a trabalhar em uma empresa como analista de sistemas.
+            A empresa presta suporte a diversos cinemas do Brasil onde utilizam um software criado pela empresa para gerir toda a venda online de ingressos e bilheteira.
+            Por conta desse trabalho comecei o curso atual, pois quero me especializar ainda mais nessa área.
+        </p>
+    </div>
+
+    <div id="personalLife" class="tabcontent">
+        <h2>Vida Pessoal</h2>
+        <img src="images/cavalo4.jpg" alt="Imagem Vida Pessoal">
+        <p>Atualmente tenho 25 anos, tenho uma namorada, um carro e em minhas horas vagas gosto de jogar alguns games, ir à academia e praticar esportes.</p>
+    </div>
+
+    <div id="form" class="tabcontent">
+        <h2>Formulário</h2>
+        <form class="form-container" action="#" method="post">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
